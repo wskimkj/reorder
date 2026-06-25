@@ -135,18 +135,18 @@ function renderResults(items) {
           <thead>
             <tr>
               <th>상태</th>
-              <th>대표 재입고일</th>
-              <th>상품명</th>
-              <th>상품코드</th>
+              <th>오더 날짜</th>
+              <th>품번 / 상품코드</th>
               <th>컬러</th>
               <th>입고처</th>
-              <th class="text-right">총 오더</th>
-              <th class="text-right">1차</th>
-              <th class="text-right">2차</th>
-              <th class="text-right">3차</th>
-              <th class="text-right">잔여</th>
-              <th>JS공장</th>
-              <th>주희물류</th>
+              <th>완성센터</th>
+              <th>물류 입고예정일</th>
+              <th class="text-right">오더수량</th>
+              <th class="text-right">1차 입고</th>
+              <th class="text-right">2차 입고</th>
+              <th class="text-right">3차 입고</th>
+              <th class="text-right">미입고 수량</th>
+              <th>상품명</th>
               <th>원본시트</th>
               <th>원본</th>
             </tr>
@@ -170,18 +170,18 @@ function renderRow(item) {
   return `
     <tr>
       <td>${renderStatus(item.status)}</td>
-      <td>${escapeHtml(item.mainRestockDate || '일정미정')}</td>
-      <td>${highlightText(item.productName, keyword)}</td>
+      <td>${escapeHtml(item.orderDate || item.reorderDate || '')}</td>
       <td>${highlightText(item.productCode, keyword)}</td>
       <td>${highlightText(item.color, keyword)}</td>
       <td>${escapeHtml(item.warehouse)}</td>
+      <td>${escapeHtml(item.completionCenterDate || item.jsDate || '')}</td>
+      <td>${escapeHtml(item.logisticsDate)}</td>
       <td class="text-right">${escapeHtml(item.totalOrderQty)}</td>
       <td class="text-right">${escapeHtml(item.firstQty)}</td>
       <td class="text-right">${escapeHtml(item.secondQty)}</td>
       <td class="text-right">${escapeHtml(item.thirdQty)}</td>
       <td class="text-right">${escapeHtml(item.remainingQty)}</td>
-      <td>${escapeHtml(item.jsDate)}</td>
-      <td>${escapeHtml(item.logisticsDate)}</td>
+      <td>${highlightText(item.productName, keyword)}</td>
       <td>${escapeHtml(item.sourceSheet)} / ${escapeHtml(item.sourceRow)}행</td>
       <td><a class="source-link" href="${escapeAttribute(item.sourceUrl)}" target="_blank" rel="noopener">원본보기</a></td>
     </tr>
