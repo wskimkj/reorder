@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Restock Search</title>
+
+  <link rel="stylesheet" href="https://wskimkj.github.io/admin/css/common.css">
+
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-shell">
+    <div class="inner-shell">
+
+      <div class="header">
+        <div class="header-left">
+          <div class="title-wrap">
+            <h1>
+              Restock Search
+              <span class="title-tag">Reorder</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div id="lastUpdated">검색 대기 중</div>
+        </div>
+      </div>
+
+      <div class="content-row">
+
+        <div class="card card-search">
+          <div class="search-box">
+
+            <div class="search-grid">
+              <div class="input-wrap slim">
+                <span class="input-icon-left" aria-hidden="true">
+                  <svg class="icon-search" viewBox="0 0 24 24" fill="none">
+                    <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="rgba(110,106,130,.55)" stroke-width="2"/>
+                    <path d="M20 20l-3.5-3.5" stroke="rgba(255,143,188,.80)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <input type="text" id="productName" placeholder="상품명 검색 예: 라자르" />
+                <button type="button" class="clear-btn" data-clear="productName">×</button>
+              </div>
+
+              <div class="input-wrap slim">
+                <span class="input-icon-left" aria-hidden="true">
+                  <svg class="icon-search" viewBox="0 0 24 24" fill="none">
+                    <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="rgba(110,106,130,.55)" stroke-width="2"/>
+                    <path d="M20 20l-3.5-3.5" stroke="rgba(255,143,188,.80)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <input type="text" id="productCode" placeholder="상품코드 검색 예: WS25" />
+                <button type="button" class="clear-btn" data-clear="productCode">×</button>
+              </div>
+
+              <div class="input-wrap slim">
+                <span class="input-icon-left" aria-hidden="true">
+                  <svg class="icon-search" viewBox="0 0 24 24" fill="none">
+                    <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="rgba(110,106,130,.55)" stroke-width="2"/>
+                    <path d="M20 20l-3.5-3.5" stroke="rgba(255,143,188,.80)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <input type="text" id="color" placeholder="컬러 검색 예: BEIGE / 베이지" />
+                <button type="button" class="clear-btn" data-clear="color">×</button>
+              </div>
+
+              <button type="button" id="searchButton" class="search-btn">조회</button>
+            </div>
+
+            <div class="type-pills" id="filterPills">
+              <label class="type-pill active" data-filter="all">
+                <input type="radio" name="statusFilter" value="all" checked>
+                전체
+              </label>
+
+              <label class="type-pill" data-filter="입고예정">
+                <input type="radio" name="statusFilter" value="입고예정">
+                입고예정
+              </label>
+
+              <label class="type-pill" data-filter="최근입고">
+                <input type="radio" name="statusFilter" value="최근입고">
+                최근입고
+              </label>
+
+              <label class="type-pill" data-filter="일정미정">
+                <input type="radio" name="statusFilter" value="일정미정">
+                일정미정
+              </label>
+            </div>
+
+            <div class="status" id="status">
+              생산팀 원본 시트 기준으로 재입고 일정을 조회합니다.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card result-card">
+          <div class="result-header-row">
+            <h2 class="card-title">조회 결과</h2>
+            <div class="result-header-right" id="resultInfo">0건</div>
+          </div>
+
+          <div id="result">
+            <div class="no-result">검색어를 입력하고 조회 버튼을 눌러주세요.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">복사</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
