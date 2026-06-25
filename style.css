@@ -269,11 +269,23 @@ body{
   border:1px solid rgba(170,150,230,.18);
 }
 
-.result-scroll{
-  max-height:620px;
-  overflow:auto;
+.result-table-wrap{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(170,150,230,.18);
 }
 
+.result-scroll{
+  width:100%;
+  max-height:620px;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+
+.result-scroll table{
+  min-width:1380px;
+}
 table{
   width:100%;
   border-collapse:collapse;
@@ -285,6 +297,7 @@ th,td{
   padding:10px 12px;
   border-bottom:1px solid rgba(170,150,230,.15);
   vertical-align:middle;
+  white-space:nowrap;
 }
 
 th{
@@ -423,4 +436,9 @@ tr:hover td{
   table{
     min-width:980px;
   }
+}
+
+td:nth-child(13){
+  white-space:normal;
+  min-width:180px;
 }
