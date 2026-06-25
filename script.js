@@ -1,4 +1,4 @@
-const API_URL = '여기에_Apps_Script_웹앱_exec_URL_넣기';
+const API_URL = 'https://script.google.com/macros/s/AKfycbw8aZE9eD5EqXv0rheNV9_Q74ga0FAszJxmvlPLIzrgVHXt35apqa5rxp-a5XEnzyktug/exec';
 
 const productNameInput = document.getElementById('productName');
 const productCodeInput = document.getElementById('productCode');
